@@ -10,6 +10,11 @@ def checkAnswer(definition, answer):
         return False
 
 
+def prepareDefinitionOutput(definition):
+    #     todo: Ilya Vasilev
+    return definition
+
+
 def runTest():
     dataDict = readData()
     terms = list(dataDict.keys())
@@ -22,6 +27,7 @@ def runTest():
     for term in terms:
         definition = dataDict[term]
         print(term)
+        # print(prepareDefinitionOutput(definition))
         ok = checkAnswer(definition, input())
         if ok:
             res += 1
@@ -44,6 +50,7 @@ def runTrain():
         definition = dataDict[term]
         while True:
             print(term)
+            # print(prepareDefinitionOutput(definition))
             ok = checkAnswer(definition, input())
             if ok:
                 print('Верно! Давай дальше')
