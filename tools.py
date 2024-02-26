@@ -1,9 +1,10 @@
 import json
 
-dataFilePath = './data/example.json'
+realDataFilePath = './data/realData.json'
+testDataFilePath = './data/testData.json'
 
 
 def readData():
-    with open(dataFilePath, encoding="utf-8") as f:
+    with open(realDataFilePath, encoding="utf-8") as f:
         data = f.read()
     return json.loads(data)
