@@ -11,7 +11,11 @@ def checkAnswer(definition, answer):
 
 
 def prepareDefinitionOutput(definition):
-    #     todo: Ilya Vasilev
+    for i in definition:
+        if i == "," or i == ".":
+            definition = definition.replace(i, "")
+    definition = definition.split()
+    random.shuffle(definition)
     return definition
 
 
@@ -65,4 +69,4 @@ def listTerms():
     dataDict = readData()
     terms = list(dataDict.keys())
     for i in range(0, len(terms)):
-        print(terms[i], "- это", dataDict[terms[i]])
+        return terms[i], "- это", dataDict[terms[i]]
