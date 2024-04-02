@@ -1,4 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+from tools import readData
+from impl import guide
 
 
 class Ui_Dictionary(object):
@@ -38,6 +41,7 @@ class Ui_Dictionary(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dictionary = QtWidgets.QWidget()
     ui = Ui_Dictionary()

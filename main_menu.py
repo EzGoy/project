@@ -28,7 +28,7 @@ class Ui_Main_menu(object):
         font.setWeight(75)
         self.Test.setFont(font)
         self.Test.setStyleSheet("background-color: rgb(115, 164, 255);\n"
-                                "")
+"")
         self.Test.setIconSize(QtCore.QSize(600, 20))
         self.Test.setAutoRepeatDelay(400)
         self.Test.setObjectName("Test")
@@ -40,7 +40,7 @@ class Ui_Main_menu(object):
         font.setWeight(75)
         self.Dictionary.setFont(font)
         self.Dictionary.setStyleSheet("background-color: rgb(115, 164, 255);\n"
-                                      "")
+"")
         self.Dictionary.setObjectName("Dictionary")
         Main_menu.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(Main_menu)
@@ -60,7 +60,6 @@ class Ui_Main_menu(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     Main_menu = QtWidgets.QMainWindow()
     ui = Ui_Main_menu()
