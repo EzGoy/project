@@ -1,7 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-from dictionary import Ui_Dictionary
+
+
 class Ui_Main_menu(object):
 
     def setupUi(self, Main_menu):
@@ -53,14 +54,12 @@ class Ui_Main_menu(object):
     def __init__(self):
         self.Main_menu = QtWidgets.QMainWindow()
         self.setupUi(self.Main_menu)
+        self.Dictionary = QtWidgets.QWidget()
+        self.setupUidictionary(self.Dictionary)
         self.Dictionarybtm.clicked.connect(self.show_dictionary)
 
-
     def show_dictionary(self):
-
-        DictionaryWindow = Ui_Dictionary()
-
-        DictionaryWindow.Dictionary.show()
+        self.Dictionary.show()
         self.Main_menu.close()
 
     def retranslateUi(self, Main_menu):
@@ -69,6 +68,34 @@ class Ui_Main_menu(object):
         self.Training.setText(_translate("Main_menu", "Тренировка"))
         self.Test.setText(_translate("Main_menu", "Тест"))
         self.Dictionarybtm.setText(_translate("Main_menu", "Словарь"))
+
+    def setupUidictionary(self, Dictionary):
+        Dictionary.setObjectName("Dictionary")
+        Dictionary.resize(787, 587)
+        Dictionary.setStyleSheet("background-color: rgb(241, 203, 255);\n""")
+        self.pushButton = QtWidgets.QPushButton(Dictionary)
+        self.pushButton.setGeometry(QtCore.QRect(280, 500, 260, 60))
+        font = QtGui.QFont()
+        font.setPointSize(25)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("background-color: rgb(115, 164, 255);\n""")
+        self.pushButton.setObjectName("pushButton")
+        self.textBrowser = QtWidgets.QTextBrowser(Dictionary)
+        self.textBrowser.setGeometry(QtCore.QRect(15, 11, 761, 461))
+        self.textBrowser.setStyleSheet("background-color: rgb(115, 164, 255);\n"
+                                       "")
+        self.textBrowser.setObjectName("textBrowser")
+
+        self.retranslateUi(Dictionary)
+        QtCore.QMetaObject.connectSlotsByName(Dictionary)
+
+    def retranslateUidictionary(self, Dictionary):
+        _translate = QtCore.QCoreApplication.translate
+        Dictionary.setWindowTitle(_translate("Dictionary", "Dictionary"))
+        self.pushButton.setText(_translate("Dictionary", "Вернуться"))
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
