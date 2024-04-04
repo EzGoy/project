@@ -9,6 +9,11 @@ import json
 realDataFilePath = './data/realData.json'
 testDataFilePath = './data/testData.json'
 
+import sys
+
+from PyQt5.QtWidgets import QWidget, QApplication
+
+import dictionary
 
 class guide:
 
@@ -86,3 +91,5 @@ class guide:
 
     def __init__(self):
         self.__termsDict = readData()
+
+

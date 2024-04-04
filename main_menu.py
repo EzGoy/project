@@ -1,7 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-
+import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
+from dictionary import Ui_Dictionary
 class Ui_Main_menu(object):
+
     def setupUi(self, Main_menu):
         Main_menu.setObjectName("Main_menu")
         Main_menu.resize(787, 587)
@@ -27,21 +29,19 @@ class Ui_Main_menu(object):
         font.setBold(True)
         font.setWeight(75)
         self.Test.setFont(font)
-        self.Test.setStyleSheet("background-color: rgb(115, 164, 255);\n"
-"")
+        self.Test.setStyleSheet("background-color: rgb(115, 164, 255);\n""")
         self.Test.setIconSize(QtCore.QSize(600, 20))
         self.Test.setAutoRepeatDelay(400)
         self.Test.setObjectName("Test")
-        self.Dictionary = QtWidgets.QPushButton(self.centralwidget)
-        self.Dictionary.setGeometry(QtCore.QRect(250, 390, 290, 170))
+        self.Dictionarybtm = QtWidgets.QPushButton(self.centralwidget)
+        self.Dictionarybtm.setGeometry(QtCore.QRect(250, 390, 290, 170))
         font = QtGui.QFont()
         font.setPointSize(25)
         font.setBold(True)
         font.setWeight(75)
-        self.Dictionary.setFont(font)
-        self.Dictionary.setStyleSheet("background-color: rgb(115, 164, 255);\n"
-"")
-        self.Dictionary.setObjectName("Dictionary")
+        self.Dictionarybtm.setFont(font)
+        self.Dictionarybtm.setStyleSheet("background-color: rgb(115, 164, 255);\n""")
+        self.Dictionarybtm.setObjectName("Dictionary")
         Main_menu.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(Main_menu)
         self.statusbar.setObjectName("statusbar")
@@ -50,19 +50,30 @@ class Ui_Main_menu(object):
         self.retranslateUi(Main_menu)
         QtCore.QMetaObject.connectSlotsByName(Main_menu)
 
+    def __init__(self):
+        self.Main_menu = QtWidgets.QMainWindow()
+        self.setupUi(self.Main_menu)
+        self.Dictionarybtm.clicked.connect(self.show_dictionary)
+
+
+    def show_dictionary(self):
+
+        DictionaryWindow = Ui_Dictionary()
+
+        DictionaryWindow.Dictionary.show()
+        self.Main_menu.close()
+
     def retranslateUi(self, Main_menu):
         _translate = QtCore.QCoreApplication.translate
         Main_menu.setWindowTitle(_translate("Main_menu", "Main_menu"))
         self.Training.setText(_translate("Main_menu", "Тренировка"))
         self.Test.setText(_translate("Main_menu", "Тест"))
-        self.Dictionary.setText(_translate("Main_menu", "Словарь"))
-
+        self.Dictionarybtm.setText(_translate("Main_menu", "Словарь"))
 
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication(sys.argv)
-    Main_menu = QtWidgets.QMainWindow()
-    ui = Ui_Main_menu()
-    ui.setupUi(Main_menu)
-    Main_menu.show()
+
+    mainwindow = Ui_Main_menu()
+
+    mainwindow.Main_menu.show()
     sys.exit(app.exec_())
